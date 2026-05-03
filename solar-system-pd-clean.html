@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Sistem Solar · Ultra HD</title>
+<link rel="stylesheet" href="solar-system.css">
+</head>
+<body>
+<div id="loader">
+  <div id="ltitle">Sistem Solar</div>
+  <div id="lbar-wrap"><div id="lbar"></div></div>
+  <div id="ltxt">Generare texturi...</div>
+</div>
+
+<canvas id="c"></canvas>
+
+<div id="hud">
+  <div id="logo"><h1>Sistem Solar</h1><p>Ultra HD · Texturi procedurale · WebGL</p></div>
+  <div id="tip">Rotire · Drag stânga &nbsp;|&nbsp; Zoom · Scroll<br>Panoramare · Drag dreapta &nbsp;|&nbsp; Click · Detalii 360°</div>
+</div>
+
+<div id="bot">
+  <div id="spdblk">
+    <label>Viteză</label>
+    <input type="range" id="spd" min="0" max="100" value="22"/>
+    <button id="pbtn">&#9646;&#9646; Pauză</button>
+    <button id="musicbtn">
+      <span id="musiclabel">&#9654; Muzică</span>
+      <div id="viz">
+        <div class="vbar" style="--d:.35s;height:4px"></div>
+        <div class="vbar" style="--d:.52s;height:8px"></div>
+        <div class="vbar" style="--d:.28s;height:6px"></div>
+        <div class="vbar" style="--d:.44s;height:10px"></div>
+        <div class="vbar" style="--d:.38s;height:5px"></div>
+        <div class="vbar" style="--d:.60s;height:12px"></div>
+        <div class="vbar" style="--d:.32s;height:7px"></div>
+      </div>
+    </button>
+    <div id="vol-wrap">
+      <label>Vol</label>
+      <input type="range" id="vol" min="0" max="100" value="60"/>
+    </div>
+    <button id="patchbtn">Patch</button>
+  </div>
+  <div id="strip">
+    <button class="sb" data-n="Sun">Soare</button>
+    <button class="sb" data-n="Mercury">Mercur</button>
+    <button class="sb" data-n="Venus">Venus</button>
+    <button class="sb" data-n="Earth">Pamant</button>
+    <button class="sb" data-n="Mars">Marte</button>
+    <button class="sb" data-n="Jupiter">Jupiter</button>
+    <button class="sb" data-n="Saturn">Saturn</button>
+    <button class="sb" data-n="Uranus">Uranus</button>
+    <button class="sb" data-n="Neptune">Neptun</button>
+  </div>
+</div>
+
+<!-- Pure Data patch viewer panel -->
+<div id="patch">
+  <h3>&#9670; solar_system.pd</h3>
+  <div id="pd-canvas">
+    <div class="pd-comment">// Pure Data patch — WebPd runtime</div>
+    <div id="pd-objects"></div>
+  </div>
+  <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+    <button id="dl-pd" class="patchbtn">&#11123; Download .pd</button>
+    <span id="pd-status" style="font-size:7.5px;letter-spacing:.15em;color:var(--dim);text-transform:uppercase">Oprit</span>
+  </div>
+</div>
+
+<div id="modal">
+  <div id="mbk"></div>
+  <div id="mi">
+    <div id="mcw"><canvas id="pc"></canvas><div id="dh">Drag · Rotire 360°</div></div>
+    <div id="minfo">
+      <button id="mcls">&#x2715; Inchide</button>
+      <div><div id="mpn">-</div><div id="mpt">-</div></div>
+      <div class="sg" id="sg"></div>
+      <div><div class="ath">Compozitie Atmosferica</div><div id="atmbars"></div></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@webpd/runtime/dist/webpd.min.js"></script>
+<script src="solar-system.js"></script>
+</body>
+</html>
